@@ -65,7 +65,7 @@
             this.container.addEventListener('click', event => {
                 if(event.target instanceof HTMLButtonElement){
                     const text = event.target.textContent
-                    if('0123456789'.indexOf(text) >= 0){
+                    if('0123456789.'.indexOf(text) >= 0){
                         if( this.operator){
                             this.n2 =  this.n2 + text
                             this.resultSpan.textContent =  this.n2
@@ -99,16 +99,16 @@
         }
 
         getRusult(n1: string, n2: string, operator: string): string{
-            let numberN1: number = parseInt(n1)
-            let numberN2: number = parseInt(n2)
+            let numberN1: number = parseFloat(n1)
+            let numberN2: number = parseFloat(n2)
             if(operator === '+'){
-                return (numberN1 + numberN2).toString()
+                return (numberN1 + numberN2).toPrecision(12)
             }else if(this.operator === '-'){
-                return (numberN1 - numberN2).toString()
+                return (numberN1 - numberN2).toPrecision(12)
             }else if(this.operator === '×'){
-                return (numberN1 * numberN2).toString()
+                return (numberN1 * numberN2).toPrecision(12)
             }else if(this.operator === '÷'){
-                return (numberN1 / numberN2).toString()
+                return (numberN1 / numberN2).toPrecision(12)
             }
         }
 
